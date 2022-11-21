@@ -17,6 +17,11 @@ export const Header = () => {
               <Link href="/about">About</Link>
             </button>
           </li>
+          <li>
+            <button className="btn btn-outline btn-warning glass btn-sm">
+              <Link href="/pokemon">Pokemon</Link>
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
