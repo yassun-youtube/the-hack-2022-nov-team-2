@@ -1,13 +1,9 @@
 import { PokemonResponse } from "../../schema";
 import Image from "next/image";
-
-const getPokemon = async (pokemonName: string): Promise<PokemonResponse> => {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-  if (!res.ok) throw new Error("Failed to fetch data");
-  return res.json();
-};
+import { pokemonPresenter } from "../../lib/pokemonPresenter";
 
 export default async function PokemonTop() {
+  const { getPokemon } = pokemonPresenter();
   const pikachuData = await getPokemon("pikachu");
 
   return (
