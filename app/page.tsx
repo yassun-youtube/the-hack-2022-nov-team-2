@@ -1,9 +1,9 @@
-import { FetchPokemons } from "../components/FetchPokemons";
+import { PokemonContainer } from "../components/PokemonContainer";
 
 export default async function Page() {
   return (
     <div>
-      <FetchPokemons />
+      <PokemonContainer />
     </div>
   );
 }
