@@ -21,7 +21,9 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
       </div>
       <div className="relative w-40 h-40 object-fill px-10 pt-10">
         <Image
-          src={pokemon.sprites.other["official-artwork"].front_default}
+          src={
+            pokemon.sprites.other["official-artwork"].front_default ?? undefined
+          }
           alt={pokemon.name}
           fill
         />
@@ -29,7 +31,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
 
       <div className="relative w-40 h-40 object-fill px-10 pt-10">
         <Image
-          src={pokemon.sprites.other["dream_world"].front_default}
+          src={pokemon.sprites.other["dream_world"].front_default ?? undefined}
           alt={pokemon.name}
           fill
         />
@@ -37,7 +39,10 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
 
       <div className="relative w-40 h-40 object-fill px-10 pt-10">
         <Image
-          src={pokemon.sprites.versions["generation-ii"].crystal.front_default}
+          src={
+            pokemon.sprites.versions["generation-ii"].crystal.front_default ??
+            undefined
+          }
           alt={pokemon.name}
           fill
         />
@@ -47,7 +52,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
         <Image
           src={
             pokemon.sprites.versions["generation-iii"]["ruby-sapphire"]
-              .front_default
+              .front_default ?? undefined
           }
           alt={pokemon.name}
           fill
@@ -57,8 +62,8 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
       <div className="relative w-40 h-40 object-fill px-10 pt-10">
         <Image
           src={
-            pokemon.sprites.versions["generation-iv"]["diamond-pearl"]
-              .front_default
+            pokemon.sprites?.versions["generation-iv"]["diamond-pearl"]
+              ?.front_default ?? undefined
           }
           alt={pokemon.name}
           fill
@@ -68,7 +73,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
         <Image
           src={
             pokemon.sprites.versions["generation-v"]["black-white"].animated
-              .front_default
+              .front_default ?? undefined
           }
           alt={pokemon.name}
           fill
@@ -78,7 +83,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
         <Image
           src={
             pokemon.sprites.versions["generation-vi"]["omegaruby-alphasapphire"]
-              .front_default
+              .front_default ?? undefined
           }
           alt={pokemon.name}
           fill
