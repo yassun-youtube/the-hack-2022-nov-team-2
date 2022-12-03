@@ -1,3 +1,9 @@
+import { PokemonContainer } from "../components/PokemonContainer";
+
 export default async function Page() {
-  return <button className="btn btn-primary">daisyUi button</button>;
+  return (
+    <div>
+      <PokemonContainer />
+    </div>
+  );
 }
