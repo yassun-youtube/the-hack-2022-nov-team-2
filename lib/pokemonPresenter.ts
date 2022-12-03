@@ -1,5 +1,3 @@
-import { ftruncate } from "fs";
-import useSWR from "swr";
 import { PokemonResponse } from "../schema";
 
 export const pokemonPresenter = (): {
