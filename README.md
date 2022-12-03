@@ -1,4 +1,4 @@
-## やっすんコミニュティ（The Hack）の Next.js13 app の土台
+## やっすんコミニュティ（The Hack）の Next.js13 app
 
 ### 基本方針
 
