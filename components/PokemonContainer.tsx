@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import useSWR from "swr";
+import { Pagination } from "./Pagination";
 import { PokemonCard } from "./PokemonCard";
 
 type GetPokemonsResponse = {
@@ -26,30 +27,14 @@ export const PokemonContainer = () => {
   if (!pokemonsData) return <div>loading...</div>;
 
   return (
-    <div className="flex flex-col gap-4 p-12">
-      {pokemonsData.results.map((pokemon) => (
-        <PokemonCard pokemonUrl={pokemon.url} />
-      ))}
-      <div className="flex justify-center">
-        <div className="btn-group">
-          <button
-            disabled={page === 0}
-            className="btn bg-pokeBlend3"
-            onClick={() => setPage((prev) => prev - 1)}
-          >
-            «
-          </button>
-          <button className="btn bg-pokeBlend3 cursor-auto">
-            Page {page ? page + 1 : 1}
-          </button>
-          <button
-            className="btn bg-pokeBlend3"
-            onClick={() => setPage((prev) => prev + 1)}
-          >
-            »
-          </button>
-        </div>
+    <div className="p-4">
+      <Pagination page={page} setPage={setPage} />
+      <div className="flex flex-col gap-4 p-12">
+        {pokemonsData.results.map((pokemon) => (
+          <PokemonCard key={pokemon.name} pokemonUrl={pokemon.url} />
+        ))}
       </div>
+      <Pagination page={page} setPage={setPage} />
     </div>
   );
 };
