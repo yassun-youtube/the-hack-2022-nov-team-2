@@ -15,7 +15,10 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
   if (error) return <div>failed to load</div>;
 
   return pokemon ? (
-    <div className="card w-60  shadow-2xl flex items-center bg-yellow-100">
+    <div className="flex justify-start items-center border-4 border-pokeBlend1 rounded-lg p-4 cursor-pointer">
+      <div className="card-body  text-center">
+        <h1 className="card-title">{pokemon.name}</h1>
+      </div>
       <div className="relative w-40 h-40 object-fill px-10 pt-10">
         <Image
           src={pokemon.sprites.other["official-artwork"].front_default}
@@ -23,12 +26,63 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
           fill
         />
       </div>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">{pokemon.name}</h2>
-        <h3 className="font-semibold">[Types]</h3>
-        {pokemon.types.map((type) => (
-          <p>{type.type.name}</p>
-        ))}
+
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={pokemon.sprites.other["dream_world"].front_default}
+          alt={pokemon.name}
+          fill
+        />
+      </div>
+
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={pokemon.sprites.versions["generation-ii"].crystal.front_default}
+          alt={pokemon.name}
+          fill
+        />
+      </div>
+
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={
+            pokemon.sprites.versions["generation-iii"]["ruby-sapphire"]
+              .front_default
+          }
+          alt={pokemon.name}
+          fill
+        />
+      </div>
+
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={
+            pokemon.sprites.versions["generation-iv"]["diamond-pearl"]
+              .front_default
+          }
+          alt={pokemon.name}
+          fill
+        />
+      </div>
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={
+            pokemon.sprites.versions["generation-v"]["black-white"].animated
+              .front_default
+          }
+          alt={pokemon.name}
+          fill
+        />
+      </div>
+      <div className="relative w-40 h-40 object-fill px-10 pt-10">
+        <Image
+          src={
+            pokemon.sprites.versions["generation-vi"]["omegaruby-alphasapphire"]
+              .front_default
+          }
+          alt={pokemon.name}
+          fill
+        />
       </div>
     </div>
   ) : (
