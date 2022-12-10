@@ -1,4 +1,4 @@
-import { PokemonResponse } from "../schema";
+import { PokemonResponse } from "../types/pokemonResponse";
 
 export const pokemonPresenter = (): {
   getPokemon: (pokemonNameOrId: string) => Promise<PokemonResponse>;
