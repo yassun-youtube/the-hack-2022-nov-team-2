@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 import useSWR from "swr";
 import { PokemonResponse } from "../schema";
-import { idText } from "typescript";
 
 type PokemonCardProps = {
   pokemonUrl: string;
