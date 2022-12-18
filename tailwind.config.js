@@ -8,9 +8,16 @@ module.exports = {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        ping: {
+          "10%, 100%": {
+            transform: "scale(2)",
+            opacity: 0,
+          },
+        },
       },
       animation: {
         waving: "wave 10s linear infinite",
+        ping: "ping 4s cubic-bezier(0, 0, 0.2, 1) infinite;",
       },
     },
     colors: {

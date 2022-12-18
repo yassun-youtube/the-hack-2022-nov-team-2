@@ -11,7 +11,12 @@ export const LogoAnimation = () => {
           priority
           className="animate-waving"
         />
-        <Image src="/LogoText.svg" alt={"logo_text"} fill />
+        <Image
+          src="/LogoText.svg"
+          alt={"logo_text"}
+          fill
+          className="hover:animate-ping"
+        />
       </div>
     </div>
   );
