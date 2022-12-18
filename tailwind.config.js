@@ -4,20 +4,25 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        wave: {
+        spin: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
-        ping: {
-          "10%, 100%": {
-            transform: "scale(2)",
-            opacity: 0,
-          },
+        waving: {
+          "0%": { transform: "rotate(45deg)" },
+          "10%": { transform: "rotate(90deg)" },
+          "20%": { transform: "rotate(0deg)" },
+          "30%": { transform: "rotate(45deg)" },
+          "40%": { transform: "rotate(45deg)" },
+          "50%": { transform: "rotate(90deg)" },
+          "60%": { transform: "rotate(0deg)" },
+          "75%": { transform: "rotate(45deg)" },
+          "100%": { transform: "rotate(45deg)" },
         },
       },
       animation: {
-        waving: "wave 10s linear infinite",
-        ping: "ping 4s cubic-bezier(0, 0, 0.2, 1) infinite;",
+        spin: "spin 10s linear infinite",
+        waving: "waving 5s linear infinite",
       },
     },
     colors: {
