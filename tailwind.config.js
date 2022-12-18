@@ -5,18 +5,12 @@ module.exports = {
     extend: {
       keyframes: {
         wave: {
-          '0%': { transform: 'rotate(0.0deg)' },
-          '10%': { transform: 'rotate(14deg)' },
-          '20%': { transform: 'rotate(-8deg)' },
-          '30%': { transform: 'rotate(14deg)' },
-          '40%': { transform: 'rotate(-4deg)' },
-          '50%': { transform: 'rotate(10.0deg)' },
-          '60%': { transform: 'rotate(0.0deg)' },
-          '100%': { transform: 'rotate(0.0deg)' },
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
       animation: {
-        'waving': 'wave 4s linear infinite',
+        waving: "wave 10s linear infinite",
       },
     },
     colors: {
