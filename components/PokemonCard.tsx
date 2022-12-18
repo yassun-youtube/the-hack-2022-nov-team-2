@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useSWR from "swr";
 import { PokemonResponse } from "../types/pokemonResponse";
 import { PokemonDetailResponse } from "../types/pokemonDetailResponse";
@@ -62,6 +63,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
         </div>
         {pokemonGenus && <p className="text-center">[{pokemonGenus}]</p>}
       </div>
+      <Link href={`/pokemon/${pokemonId}`}>
       <div className="flex flex-row gap-3">
         <div className="relative w-40 h-40 object-fill px-10 pt-10">
           <Image
@@ -170,6 +172,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
           </div>
         )}
       </div>
+      </Link>
     </div>
   ) : (
     <h1>Not found Pokemon</h1>
