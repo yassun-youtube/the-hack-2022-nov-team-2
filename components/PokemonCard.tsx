@@ -59,119 +59,90 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
     <div className="flex justify-between items-center border-4 border-pokeBlend1 rounded-lg p-4 cursor-pointer">
       <div className="flex flex-col gap-3 ml-3">
         <div className="card-body text-center ">
-          <h1 className="card-title">{pokemonName}</h1>
+          <h1 className="card-title whitespace-nowrap">{pokemonName}</h1>
         </div>
-        {pokemonGenus && <p className="text-center">[{pokemonGenus}]</p>}
+        {pokemonGenus && (
+          <p className="text-center whitespace-nowrap">{pokemonGenus}</p>
+        )}
       </div>
       <Link href={`/pokemon/${pokemonId}`}>
-      <div className="flex flex-row gap-3">
-        <div className="relative w-40 h-40 object-fill px-10 pt-10">
-          <Image
-            src={pokemonData.sprites.other["official-artwork"].front_default}
-            alt={pokemonData.name}
-            loading="eager"
-            fill
-            sizes="150"
-            priority
-          />
+        <div className="flex flex-row gap-3">
+          <div className="relative w-40 h-40 object-fill px-10 pt-10">
+            <Image
+              src={pokemonData.sprites.other["official-artwork"].front_default}
+              alt={pokemonData.name}
+              loading="eager"
+              fill
+              sizes="150"
+              priority
+            />
+          </div>
+
+          {pokemonData.sprites.other["dream_world"].front_default && (
+            <div className="relative w-40 h-40 object-fill px-10 pt-10">
+              <Image
+                src={
+                  pokemonData.sprites.other["dream_world"].front_default ?? ""
+                }
+                alt={pokemonData.name}
+                loading="eager"
+                fill
+                sizes="150"
+                priority
+              />
+            </div>
+          )}
+
+          {pokemonData.sprites.versions["generation-ii"].crystal
+            .front_default && (
+            <div className="relative w-40 h-40 object-fill px-10 pt-10">
+              <Image
+                src={
+                  pokemonData.sprites.versions["generation-ii"].crystal
+                    .front_default
+                }
+                alt={pokemonData.name}
+                loading="eager"
+                fill
+                sizes="150"
+                priority
+              />
+            </div>
+          )}
+
+          {pokemonData.sprites.versions["generation-iii"]["ruby-sapphire"]
+            .front_default && (
+            <div className="relative w-40 h-40 object-fill px-10 pt-10">
+              <Image
+                src={
+                  pokemonData.sprites.versions["generation-iii"][
+                    "ruby-sapphire"
+                  ].front_default
+                }
+                alt={pokemonData.name}
+                loading="eager"
+                fill
+                sizes="150"
+              />
+            </div>
+          )}
+
+          {pokemonData.sprites.versions["generation-v"]["black-white"].animated
+            .front_default && (
+            <div className="relative w-40 h-40 object-fill px-10 pt-10">
+              <Image
+                src={
+                  pokemonData.sprites.versions["generation-v"]["black-white"]
+                    .animated.front_default
+                }
+                alt={pokemonData.name}
+                loading="eager"
+                fill
+                sizes="150"
+              />
+            </div>
+          )}
         </div>
-
-        {pokemonData.sprites.other["dream_world"].front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={pokemonData.sprites.other["dream_world"].front_default ?? ""}
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-              priority
-            />
-          </div>
-        )}
-
-        {pokemonData.sprites.versions["generation-ii"].crystal
-          .front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={
-                pokemonData.sprites.versions["generation-ii"].crystal
-                  .front_default
-              }
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-              priority
-            />
-          </div>
-        )}
-
-        {pokemonData.sprites.versions["generation-iii"]["ruby-sapphire"]
-          .front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={
-                pokemonData.sprites.versions["generation-iii"]["ruby-sapphire"]
-                  .front_default
-              }
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-            />
-          </div>
-        )}
-
-        {pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
-          .front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={
-                pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
-                  .front_default
-              }
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-            />
-          </div>
-        )}
-
-        {pokemonData.sprites.versions["generation-v"]["black-white"].animated
-          .front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={
-                pokemonData.sprites.versions["generation-v"]["black-white"]
-                  .animated.front_default
-              }
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-            />
-          </div>
-        )}
-
-        {pokemonData.sprites.versions["generation-vi"][
-          "omegaruby-alphasapphire"
-        ].front_default && (
-          <div className="relative w-40 h-40 object-fill px-10 pt-10">
-            <Image
-              src={
-                pokemonData.sprites.versions["generation-vi"][
-                  "omegaruby-alphasapphire"
-                ].front_default
-              }
-              alt={pokemonData.name}
-              loading="eager"
-              fill
-              sizes="150"
-            />
-          </div>
-        )}
-      </div>
       </Link>
     </div>
   ) : (

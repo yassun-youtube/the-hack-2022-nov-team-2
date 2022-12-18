@@ -7,11 +7,11 @@ export const LogoAnimation = () => {
         <Image
           src="/LogoRing.svg"
           alt={"logo_ring"}
-          layout={"fill"}
-          objectFit={"cover"}
+          fill
+          priority
           className="animate-waving"
         />
-        <Image src="/LogoText.svg" alt={"logo_text"} layout={"fill"} />
+        <Image src="/LogoText.svg" alt={"logo_text"} fill />
       </div>
     </div>
   );

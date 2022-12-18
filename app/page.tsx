@@ -1,11 +1,11 @@
 import { LogoAnimation } from "../components/LogoAnimation";
-import { PokemonContainer } from "../components/PokemonContainer";
+import { PokemonCardContainer } from "../components/PokemonCardContainer";
 
 export default async function Page() {
   return (
     <div>
       <LogoAnimation />
-      <PokemonContainer />
+      <PokemonCardContainer />
     </div>
   );
 }

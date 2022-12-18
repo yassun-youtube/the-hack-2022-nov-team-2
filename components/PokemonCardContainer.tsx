@@ -15,7 +15,7 @@ type GetPokemonsResponse = {
   }[];
 };
 
-export const PokemonContainer = () => {
+export const PokemonCardContainer = () => {
   const [page, setPage] = useState<number>(0);
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data: pokemonsData, error } = useSWR<GetPokemonsResponse>(
@@ -29,7 +29,7 @@ export const PokemonContainer = () => {
   return (
     <div className="py-10 px-32">
       <Pagination page={page} setPage={setPage} />
-      <div className="flex flex-col shrink gap-4 p-12">
+      <div className="flex flex-col shrink gap-4 p-8">
         {pokemonsData.results.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemonUrl={pokemon.url} />
         ))}
