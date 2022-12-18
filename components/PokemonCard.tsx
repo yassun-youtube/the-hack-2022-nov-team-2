@@ -2,6 +2,7 @@
 
 import React, { useMemo } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import useSWR from "swr";
 import { PokemonResponse } from "../types/pokemonResponse";
 import { PokemonDetailResponse } from "../types/pokemonDetailResponse";
