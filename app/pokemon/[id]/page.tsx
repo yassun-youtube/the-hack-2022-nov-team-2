@@ -1,11 +1,9 @@
 "use client";
 
-import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
 import useSWR from "swr";
 import { PokemonDetailResponse } from "../../../types/pokemonDetailResponse";
 import Image from "next/image";
-import { JACODE, pokemonPresenter } from "../../../lib/pokemonPresenter";
+import { pokemonPresenter } from "../../../lib/pokemonPresenter";
 
 export default function PokemonDetail() {
   const pokemonId = location.pathname.split("/")[2];

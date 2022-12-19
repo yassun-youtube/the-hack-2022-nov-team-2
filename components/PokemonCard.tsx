@@ -6,13 +6,14 @@ import Link from "next/link";
 import useSWR from "swr";
 import { PokemonResponse } from "../types/pokemonResponse";
 import { PokemonDetailResponse } from "../types/pokemonDetailResponse";
-import { JACODE } from "../lib/pokemonPresenter";
+import { pokemonPresenter } from "../lib/pokemonPresenter";
 
 type PokemonCardProps = {
   pokemonUrl: string;
 };
 
 export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
+  const { usePokemonData } = pokemonPresenter();
   const pokemonId = useMemo(() => {
     if (!pokemonUrl) return;
 
@@ -31,20 +32,7 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`,
       fetcher
     );
-
-  const pokemonName = useMemo(() => {
-    if (!pokemonDetailData) return;
-
-    return pokemonDetailData?.names?.find((n) => n.language.name === JACODE)
-      ?.name;
-  }, [pokemonDetailData]);
-
-  const pokemonGenus = useMemo(() => {
-    if (!pokemonDetailData) return;
-
-    return pokemonDetailData?.genera?.find((n) => n.language.name === JACODE)
-      ?.genus;
-  }, [pokemonDetailData]);
+  const { pokemonName, pokemonGenus } = usePokemonData(pokemonDetailData);
 
   if (!pokemonData || !pokemonDetailData)
     return (
