@@ -23,11 +23,16 @@ export const PokemonCardContainer = () => {
     fetcher
   );
 
+  if (!pokemonsData)
+    return (
+      <div className="flex justify-center">
+        <div className="animate-spin h-8 w-8 bg-blue-300 rounded-xl"></div>
+      </div>
+    );
   if (error) return <div>failed to load</div>;
-  if (!pokemonsData) return <div>loading...</div>;
 
   return (
-    <div className="py-10 px-32">
+    <div className="py-10 px-28">
       <Pagination page={page} setPage={setPage} />
       <div className="flex flex-col shrink gap-4 p-8">
         {pokemonsData.results.map((pokemon) => (

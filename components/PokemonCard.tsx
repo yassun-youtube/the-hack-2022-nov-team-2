@@ -6,14 +6,14 @@ import Link from "next/link";
 import useSWR from "swr";
 import { PokemonResponse } from "../types/pokemonResponse";
 import { PokemonDetailResponse } from "../types/pokemonDetailResponse";
+import { pokemonPresenter } from "../lib/pokemonPresenter";
 
 type PokemonCardProps = {
   pokemonUrl: string;
 };
 
-const JACODE = "ja-Hrkt";
-
 export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
+  const { usePokemonData } = pokemonPresenter();
   const pokemonId = useMemo(() => {
     if (!pokemonUrl) return;
 
@@ -32,28 +32,15 @@ export const PokemonCard = ({ pokemonUrl }: PokemonCardProps) => {
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`,
       fetcher
     );
+  const { pokemonName, pokemonGenus } = usePokemonData(pokemonDetailData);
 
-  const pokemonName = useMemo(() => {
-    if (!pokemonDetailData) return;
-
-    return pokemonDetailData?.names?.find((n) => n.language.name === JACODE)
-      ?.name;
-  }, [pokemonDetailData]);
-
-  const pokemonGenus = useMemo(() => {
-    if (!pokemonDetailData) return;
-
-    return pokemonDetailData?.genera?.find((n) => n.language.name === JACODE)
-      ?.genus;
-  }, [pokemonDetailData]);
-
-  if (error || detailError) return <div>failed to load</div>;
-  if (!error && !pokemonData && !pokemonDetailData)
+  if (!pokemonData || !pokemonDetailData)
     return (
       <div className="flex justify-center">
         <div className="animate-spin h-8 w-8 bg-blue-300 rounded-xl"></div>
       </div>
     );
+  if (error && detailError) return <div>failed to load</div>;
 
   return pokemonData ? (
     <div className="flex justify-between items-center border-4 border-pokeBlend1 rounded-lg p-4 cursor-pointer">

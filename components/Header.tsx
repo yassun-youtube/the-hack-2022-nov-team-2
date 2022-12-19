@@ -22,11 +22,11 @@ export const Header = () => {
               <Link href="/about">About</Link>
             </button>
           </li>
-          <li>
+          {/* <li>
             <button className="btn bg-pokeBlend3 btn-sm">
               <Link href="/pokemon">Pokemon</Link>
             </button>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

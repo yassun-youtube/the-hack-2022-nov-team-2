@@ -7,7 +7,7 @@ import Image from "next/image";
 export const AboutContents = () => {
   return (
     <div className="py-10 px-32 ">
-      <h1 className="text-5xl font-bold  flex justify-center text-pokeBlend2">
+      <h1 className="text-5xl font-bold flex justify-center text-pokeBlend2">
         About Page
       </h1>
       <Member />
