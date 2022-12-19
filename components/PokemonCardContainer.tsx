@@ -27,7 +27,7 @@ export const PokemonCardContainer = () => {
   if (!pokemonsData) return <div>loading...</div>;
 
   return (
-    <div className="py-10 px-32">
+    <div className="py-10 px-28">
       <Pagination page={page} setPage={setPage} />
       <div className="flex flex-col shrink gap-4 p-8">
         {pokemonsData.results.map((pokemon) => (
