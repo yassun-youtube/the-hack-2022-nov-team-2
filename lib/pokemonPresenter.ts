@@ -9,6 +9,7 @@ export const pokemonPresenter = (): {
   usePokemonData: (pokemonSpeciesData: PokemonDetailResponse | undefined) => {
     pokemonName: string | undefined;
     pokemonGenus: string | undefined;
+    pokemonFlavorText: string | undefined;
   };
 } => {
   const getPokemon = async (
@@ -21,24 +22,29 @@ export const pokemonPresenter = (): {
     return res.json();
   };
 
-  const usePokemonData = (
-    pokemonSpeciesData: PokemonDetailResponse | undefined
-  ) => {
+  const usePokemonData = (pokemonData: PokemonDetailResponse | undefined) => {
     const pokemonName = useMemo(() => {
-      if (!pokemonSpeciesData) return;
+      if (!pokemonData) return;
 
-      return pokemonSpeciesData?.names?.find((n) => n.language.name === JACODE)
-        ?.name;
-    }, [pokemonSpeciesData]);
+      return pokemonData?.names?.find((n) => n.language.name === JACODE)?.name;
+    }, [pokemonData]);
 
     const pokemonGenus = useMemo(() => {
-      if (!pokemonSpeciesData) return;
+      if (!pokemonData) return;
 
-      return pokemonSpeciesData?.genera?.find((n) => n.language.name === JACODE)
+      return pokemonData?.genera?.find((n) => n.language.name === JACODE)
         ?.genus;
-    }, [pokemonSpeciesData]);
+    }, [pokemonData]);
 
-    return { pokemonName, pokemonGenus };
+    const pokemonFlavorText = useMemo(() => {
+      if (!pokemonData) return;
+
+      return pokemonData.flavor_text_entries.find(
+        (f) => f.language.name === JACODE
+      )?.flavor_text;
+    }, [pokemonData]);
+
+    return { pokemonName, pokemonGenus, pokemonFlavorText };
   };
 
   return {
